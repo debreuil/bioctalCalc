@@ -67,7 +67,7 @@ public class CalcButton extends Button {
         params.width = 0;
         params.height = 0;
         params.setGravity(Gravity.FILL_HORIZONTAL | Gravity.FILL_VERTICAL);
-        params.rowSpec = new GridLayout.spec(GridLayout.UNDEFINED, 1.0f);
+//        params.rowSpec = new GridLayout.spec(GridLayout.UNDEFINED, 1.0f);
 //        //params.rowSpec.weight - 1.0f;
         this.setLayoutParams(params);
 //
