@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="buttons_port_height">300dp</dimen>
+    <dimen name="buttons_land_width">430dp</dimen>
+    <dimen name="buttons_spacing">4dp</dimen>
+</resources>
