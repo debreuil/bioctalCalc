@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.VectorDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -58,25 +59,36 @@ public class CalcButton extends Button {
         } finally {
             a.recycle();
         }
-//
-//        this.setId(idIndex++);
         Resources res = getResources();
         this.setBackground(res.getDrawable(R.drawable.ic_bkg_norm, null));
-        //GridLayout.LayoutParams params = (GridLayout.LayoutParams) this.getLayoutParams();
-        GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-        params.width = 0;
-        params.height = 0;
-        params.setGravity(Gravity.FILL_HORIZONTAL | Gravity.FILL_VERTICAL);
-//        params.rowSpec = new GridLayout.spec(GridLayout.UNDEFINED, 1.0f);
-//        //params.rowSpec.weight - 1.0f;
-        this.setLayoutParams(params);
-//
+
+//        int row = attrs.getAttributeIntValue(
+//                "http://schemas.android.com/apk/res/android",
+//                "layout_row", 0);
+//        int col = attrs.getAttributeIntValue(
+//                "http://schemas.android.com/apk/res/android",
+//                "layout_column", 0);
+//        int rowSpan = attrs.getAttributeIntValue(
+//                "http://schemas.android.com/apk/res/android",
+//                "layout_rowSpan", 1);
+//        int colSpan = attrs.getAttributeIntValue(
+//                "http://schemas.android.com/apk/res/android",
+//                "layout_columnSpan", 1);
+//        //GridLayout.LayoutParams params = (GridLayout.LayoutParams) this.getLayoutParams();
+//        GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+//        params.width = 0;
+//        params.height = 0;
+//        params.rowSpec = GridLayout.spec(row, rowSpan, 1f);
+//        params.columnSpec = GridLayout.spec(col, colSpan, 1f);
+//        params.setGravity(Gravity.FILL_HORIZONTAL | Gravity.FILL_VERTICAL);
+//        this.setLayoutParams(params);
+
         this.setGravity(Gravity.CENTER);
 
 //        this.setShadowLayer(7, 5, 5, 0xFFFF0000);
 
-        mPaint.setColor(0xFFFF0000);
-        mPaint.setStyle(Paint.Style.FILL);
+//        mPaint.setColor(0xFFFF0000);
+//        mPaint.setStyle(Paint.Style.FILL);
         //mPaint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.NORMAL));
     }
 
