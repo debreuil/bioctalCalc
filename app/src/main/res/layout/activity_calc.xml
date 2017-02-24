@@ -1,9 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable name="calcStyle" type="com.debreuil.bioctalcalc.CalcStyle"/>
-    </data>
 
 <LinearLayout
     android:orientation="vertical"
@@ -13,13 +10,25 @@
     android:padding="12dp"
     android:clipToPadding="true">
 
-
-    <TextView
-        android:text="TextView"
+    <com.debreuil.bioctalcalc.FixedAspectRatioFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:id="@+id/textView2" />
+        android:layout_height="wrap_content"
+        android:foregroundGravity="top"
+        android:layout_gravity="top" >
+        <com.debreuil.bioctalcalc.CalcDisplay
+            android:id="@+id/disp0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="top"
+            android:layout_gravity="top"
+            android:columnCount="11"
+            android:rowCount="9"
+            />
+    </com.debreuil.bioctalcalc.FixedAspectRatioFrameLayout>
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="50dp" />
 
     <com.debreuil.bioctalcalc.FixedAspectRatioFrameLayout
         android:layout_width="match_parent"
@@ -30,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:foregroundGravity="bottom"
+        android:layout_gravity="bottom"
         android:columnCount="11"
         android:rowCount="9"
         >

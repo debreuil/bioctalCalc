@@ -12,13 +12,14 @@ import android.graphics.drawable.VectorDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.graphics.drawable.Drawable;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 
-public class CalcButton extends Button {
+public class CalcButton extends Button implements View.OnClickListener {
 
 //    private String mButtonName;
     private int glyphId;
@@ -60,7 +61,17 @@ public class CalcButton extends Button {
             a.recycle();
         }
         Resources res = getResources();
-        this.setBackground(res.getDrawable(R.drawable.ic_bkg_norm, null));
+
+        int rowSpan = attrs.getAttributeIntValue(
+                "http://schemas.android.com/apk/res/android",
+                "layout_rowSpan", 1);
+        int colSpan = attrs.getAttributeIntValue(
+                "http://schemas.android.com/apk/res/android",
+                "layout_columnSpan", 1);
+        int resId = (rowSpan > 1) ? R.drawable.ic_bkg_tall : (colSpan > 1) ?
+                R.drawable.ic_bkg_wide : R.drawable.ic_bkg_norm;
+        Log.i("tag", colSpan + " : " + resId);
+        this.setBackground(res.getDrawable(resId, null));
 
 //        int row = attrs.getAttributeIntValue(
 //                "http://schemas.android.com/apk/res/android",
@@ -90,6 +101,12 @@ public class CalcButton extends Button {
 //        mPaint.setColor(0xFFFF0000);
 //        mPaint.setStyle(Paint.Style.FILL);
         //mPaint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.NORMAL));
+        this.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Log.i("-", "onClick: " + this.glyphId);
     }
 
     @Override
@@ -100,9 +117,5 @@ public class CalcButton extends Button {
         Drawable vectorDrawable = res.getDrawable(this.glyphId, null);
         vectorDrawable.setBounds(r);
         vectorDrawable.draw(canvas);
-        canvas.drawOval(
-                new RectF(0f,0f,10f,10f),
-                mPaint
-        );
     }
 }

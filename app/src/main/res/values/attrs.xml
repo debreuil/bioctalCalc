@@ -17,5 +17,9 @@
     <declare-styleable name="CalcButton">
         <attr name="glyphId" format="integer" />
     </declare-styleable>
+    <declare-styleable name="CalcDisplay">
+        <attr name="display_rows" format="integer" />
+        <attr name="display_columns" format="integer" />
+    </declare-styleable>
 
 </resources>
