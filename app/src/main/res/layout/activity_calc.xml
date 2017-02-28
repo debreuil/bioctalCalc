@@ -16,26 +16,27 @@
         android:foregroundGravity="top"
         android:layout_gravity="top" >
         <com.debreuil.bioctalcalc.CalcDisplay
-            android:id="@+id/disp0"
+            android:id="@+id/calcDisplay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foregroundGravity="top"
             android:layout_gravity="top"
-            android:columnCount="11"
-            android:rowCount="9"
+            app:display_columns="11"
+            app:display_rows="9"
             />
     </com.debreuil.bioctalcalc.FixedAspectRatioFrameLayout>
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="50dp" />
+        android:layout_height="20dp" />
 
     <com.debreuil.bioctalcalc.FixedAspectRatioFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom" >
+        android:layout_gravity="center_horizontal" >
 
-    <android.widget.GridLayout
+    <com.debreuil.bioctalcalc.CalcButtons
+        android:id="@+id/calcButtons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:foregroundGravity="bottom"
@@ -395,7 +396,7 @@
              android:fitsSystemWindows. -->
 
 
-    </android.widget.GridLayout>
+    </com.debreuil.bioctalcalc.CalcButtons>
 
     </com.debreuil.bioctalcalc.FixedAspectRatioFrameLayout>
 </LinearLayout>

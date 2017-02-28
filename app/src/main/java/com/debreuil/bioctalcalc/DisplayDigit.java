@@ -66,6 +66,46 @@ public class DisplayDigit extends View {
         }
     }
 
+    public static boolean isDigit(int value) {
+        boolean result = false;
+        switch (value) {
+            case R.drawable.ic_glyph_0 :
+            case R.drawable.ic_glyph_1 :
+            case R.drawable.ic_glyph_2 :
+            case R.drawable.ic_glyph_3 :
+            case R.drawable.ic_glyph_4 :
+            case R.drawable.ic_glyph_5 :
+            case R.drawable.ic_glyph_6 :
+            case R.drawable.ic_glyph_7 :
+            case R.drawable.ic_glyph_8 :
+            case R.drawable.ic_glyph_9 :
+            case R.drawable.ic_glyph_a :
+            case R.drawable.ic_glyph_b :
+            case R.drawable.ic_glyph_c :
+            case R.drawable.ic_glyph_d :
+            case R.drawable.ic_glyph_e :
+            case R.drawable.ic_glyph_f :
+                result = true;
+                break;
+        }
+        return result;
+    }
+    public static boolean isOp(int value) {
+        boolean result = false;
+        switch (value) {
+            case R.drawable.ic_glyph_add :
+            case R.drawable.ic_glyph_sub :
+            case R.drawable.ic_glyph_mul :
+            case R.drawable.ic_glyph_div :
+            case R.drawable.ic_glyph_shl :
+            case R.drawable.ic_glyph_shr :
+            case R.drawable.ic_glyph_pow :
+            case R.drawable.ic_glyph_pow2 :
+                result = true;
+                break;
+        }
+        return result;
+    }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -80,7 +120,11 @@ public class DisplayDigit extends View {
             Drawable vectorDrawable = res.getDrawable(this.glyphId, null);
             vectorDrawable.setBounds(r);
             Drawable md = vectorDrawable.mutate();
-            md.setTint(0xFF222255);
+            if(isDigit(this.glyphId)) {
+                md.setTint(0xFF222255);
+            } else {
+                md.setTint(0xFF663322);
+            }
             md.draw(canvas);
         }
     }
